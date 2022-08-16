@@ -65,7 +65,6 @@
     ⇜ <a>Прошлая страница</a>
   </div>
   <div align="right">
-    <a href="commands.md">Следующая страница</a> ⇝
+    <a href="syntax.md">Следующая страница</a> ⇝
   </div>
-
 </p>
