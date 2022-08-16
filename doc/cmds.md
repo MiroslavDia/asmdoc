@@ -19,7 +19,7 @@ if(x >= y)
 ```
 
 Ассемблер:
-```asm
+```nasm
 ; (переменные x и y находятся в регистрах cx и dx)
 cmp cx, dx
 jge action
@@ -68,7 +68,7 @@ int multiply(int a, int b) {
 ```
 
 Ассемблер:
-```assembly
+```nasm
 ; (переменные a, b в регистрах ax и bx, само число будет в ax)
 multiply:
   mov ax, ax
