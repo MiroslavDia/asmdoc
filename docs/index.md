@@ -1,5 +1,7 @@
 # Докуменация
-> alert(100); <script></script>
+<script>
+  alert('hello')
+</script>
 
 Добро пожаловать в мир x86!
 
