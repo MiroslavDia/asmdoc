@@ -120,6 +120,8 @@ $ nasm -f elf -o hello.o hello.asm
 $ ld -o hello hello.o
 $ ./hello
 Hello, world!
+$ echo $?
+0
 ```
 
 #### Программа, которая суммирует два числа и выводит результат на экран
@@ -151,11 +153,12 @@ _start:
   
   mov eax, 4
   mov ebx, 1
-  mov ecx, sum
+  mov ecx, sum ; Обязательно! Не пишите [sum], просто пишите sum
   mov edx, 1
   int 0x80
   
   mov eax, 1
+  mov ebx, 0
   int 0x80
 
 section .data
@@ -164,7 +167,7 @@ section .data
   msg db 'Sum of x and y is '
   len equ $ - msg
 
-segment .bss ; Сегмент с неинициированными переменными
+segment .bss ; Сегмент с неинициализированными переменными
   sum resb 1
  
 ```
@@ -175,6 +178,35 @@ $ nasm -f elf -o summing.o summing.asm
 $ ld -o summing summing.o
 $ ./summing
 Sum x and y is 8
+$ echo $?
+0
+```
+
+#### Программа, которая вызывает функцию из библиотеки языка программирования Си
+
+cwithasm.asm:
+```nasm
+
+extern _printf
+
+section .text
+  global _start
+
+_start:
+  push msg
+  call _printf
+
+section .data
+  msg db 'Hello, world!'
+
+```
+
+Команды:
+```bash
+$ nasm -f elf -o cwithasm.o cwithasm.asm
+$ ld -o cwithasm cwithasm.o -llibc.so.6
+$ ./cwithasm
+Hello, world!
 ```
 
 <br/>
