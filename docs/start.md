@@ -17,5 +17,5 @@ add eax, 4
 <br/>
 <p align="center">
 Навигация:
-  <a href="commands.cmd">Следующая страница</a>
+  <a align="right" href="commands.cmd">Следующая страница</a> ⇝
 </p>
