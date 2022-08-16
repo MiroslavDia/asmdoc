@@ -8,7 +8,7 @@
 Сравнить <операнд1> с <операндом2>
 
 
-Примеры:
+# Примеры:
 
 #### Пример №1
 
@@ -75,4 +75,45 @@ multiply:
   mov cx, bx
   mul cx
   mov ax, ax
+```
+
+# Первые программы
+
+Программы, которые мы будем писать
+
+Для этого нужно
+
+## ОС
+Linux
+
+## Процессор
+Семейства Intel, x86
+
+#### Простая программа, которая выведет текст и вернет код выхода 0 (успех)
+
+hello.asm:
+```nasm
+section .data
+  msg: db 'Hello, world!',0
+  len: equ $ - msg
+ 
+section .text ; Секция с кодом
+  global _start ; Должно быть для GCC
+_start:
+  mov eax, 4 ; EAX - регистр с номером функции, 4 - системный вызов SYS_WRITE
+  mov ebx, 1 ; EBX - регистр с потоком вывода, 1 - поток STDOUT
+  mov ecx, msg ; ECX - регистр с текстом, msg - наше сообщение
+  mov edx, len ; EDX - длина текста, len - число с длиной нашего сообщения
+  int 0x80 ; INT - прерывание, 0x80 - вызов ядра Linux
+  mov eax, 1 ; 1 - системный вызов SYS_EXIT
+  mov ebx, 0 ; EBX - код выхода
+  int 0x80 ; Можно и 80h, или 0x80, без разницы 80h или 0x80, оно в любом случае будет вызывать ядро Linux
+```
+
+Команды:
+```bash
+$ nasm -f elf -o hello.o hello.asm
+$ ld -o hello hello.o
+$ ./hello
+Hello, world!
 ```
