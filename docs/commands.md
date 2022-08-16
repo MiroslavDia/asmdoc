@@ -101,8 +101,8 @@ multiply:
 hello.asm:
 ```nasm
 section .data
-  msg: db 'Hello, world!',0
-  len: equ $ - msg
+  msg db 'Hello, world!',0
+  len equ $ - msg
  
 section .text ; Секция с кодом
   global _start ; Должно быть для GCC
@@ -129,39 +129,47 @@ Hello, world!
 
 summing.asm:
 ```nasm
-section .data
-  x: db '4'
-  y: db '4'
-  msg: db 'Sum x and y is '
-  len: equ $ - msg
- 
-segment .bss
-  sum resb 1
- 
+
 section .text
   global _start
+
 _start:
   mov eax, [x] ; Перемещаем значение 4 в EAX
   sub eax, '0' ; Преобразование ASCII в цифру
+  
   mov ebx, [y] ; Перемещаем значение 4 в EBX
   sub ebx, '0' ; Преобразование ASCII в цифру
+  
   add eax, ebx ; Добавим значение регистра EBX ко регистру EAX
   add eax, '0' ; Преобразование цифру в ASCII обратно
+
   mov [sum], eax ; Сохраняем сумму чисел в sum
-  ; Пишем пользователю об этом
+
+
+  mov edx, len
   mov eax, 4
   mov ebx, 1
   mov ecx, msg
-  mov edx, len
   int 0x80
+  
   mov eax, 4
   mov ebx, 1
-  mov ecx, [sum]
+  mov ecx, sum
   mov edx, 1
   int 0x80
+  
   mov eax, 1
-  mov ebx, 0
   int 0x80
+
+section .data
+  x db '4'
+  y db '4'
+  msg db 'Sum of x and y is '
+  len equ $ - msg
+
+segment .bss ; Сегмент с неинициированными переменными
+  sum resb 1
+ 
 ```
 
 Команды:
