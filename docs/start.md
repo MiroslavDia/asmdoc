@@ -65,6 +65,8 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 
 Для пользователей MS Windows/Scoop: scoop install nasm
 
+Для пользователей Microsoft Windows: скачайте [установщик](https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/win64/nasm-2.15.05-installer-x64.exe) с оффициального сайта, и запустите от админинстратора
+
 Для пользователей MS Windows/Choco: choco install nasm
 
 Для пользователей Cygwin/Msys2: pacman -S mingw-w64-x86_64-nasm
@@ -75,6 +77,7 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 ```
 
 Если выведет "Есть", значит все хорошо
+
 
 <br/>
 <p align="center">
