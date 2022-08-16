@@ -67,6 +67,7 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 
 Для пользователей MS Windows/Choco: choco install nasm
 
+Для пользователей Cygwin/Msys2: pacman -S mingw-w64-x86_64-nasm
 
 Если установка прошла без ошибок, проверите есть ли NASM следующей командой Unix:
 ```bash
