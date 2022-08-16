@@ -19,7 +19,7 @@ if(x >= y)
 ```
 
 Ассемблер:
-```
+```asm
 ; (переменные x и y находятся в регистрах cx и dx)
 cmp cx, dx
 jge action
@@ -42,7 +42,7 @@ long factorial(long n) {
 ```
 
 Ассемблер:
-```
+```nasm
 ; (переменная n в регистре cx, само число будет в bx)
 factorial:
   cmp cx, 0
@@ -68,7 +68,7 @@ int multiply(int a, int b) {
 ```
 
 Ассемблер:
-```
+```assembly
 ; (переменные a, b в регистрах ax и bx, само число будет в ax)
 multiply:
   mov ax, ax
