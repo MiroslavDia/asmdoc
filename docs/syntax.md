@@ -26,3 +26,14 @@ ADDRQ R7, #4 @ В ARM комментарии начинаются с @ или з
 add eax, 4 ; В NASM комментарии начинаются с ;
 ```
 Данная строка добавит 4 ко регистру EAX.
+
+<br/>
+<p align="center">
+Навигация:
+  <div align="left">
+    ⇜ <a href="start.md">Прошлая страница</a>
+  </div>
+  <div align="right">
+    <a href="commands.md">Следующая страница</a> ⇝
+  </div>
+</p>
