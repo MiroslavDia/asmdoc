@@ -258,9 +258,8 @@ $ qemu-system-x86_64 hello.img
 <br/>
 <p align="center">
 Навигация:
-  
   <div align="left">
-    ⇜ <a href="start.md">Прошлая страница</a>
+    ⇜ <a href="syntax.md">Прошлая страница</a>
   </div>
   <div align="right">
     ⇝ <a>Следующяя страница</a>
