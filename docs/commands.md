@@ -136,16 +136,17 @@ section .data
   len: equ $ - msg
  
 segment .bss
-  sum resb 2
+  sum resb 1
  
 section .text
   global _start
 _start:
-  mov eax, x ; Перемещаем значение 4 в EAX
-  mov ebx, y ; Перемещаем значение 4 в EBX
+  mov eax, [x] ; Перемещаем значение 4 в EAX
   sub eax, '0' ; Преобразование ASCII в цифру
+  mov ebx, [y] ; Перемещаем значение 4 в EBX
   sub ebx, '0' ; Преобразование ASCII в цифру
   add eax, ebx ; Добавим значение регистра EBX ко регистру EAX
+  add eax, '0' ; Преобразование цифру в ASCII обратно
   mov [sum], eax ; Сохраняем сумму чисел в sum
   ; Пишем пользователю об этом
   mov eax, 4
@@ -156,7 +157,7 @@ _start:
   mov eax, 4
   mov ebx, 1
   mov ecx, [sum]
-  mov edx, 2
+  mov edx, 1
   int 0x80
   mov eax, 1
   mov ebx, 0
