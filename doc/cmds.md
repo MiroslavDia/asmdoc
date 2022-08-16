@@ -13,7 +13,7 @@
 #### Пример №1
 
 Си:
-```
+```c
 if(x >= y)
   print("X >= y");
 ```
@@ -27,4 +27,52 @@ action:
   mov si, r
   call print
   r db 'X >= y'
+```
+
+#### Пример №2
+
+Си:
+```c
+long factorial(long n) {
+  if(n == 0)
+    return 1;
+  else
+    return n * factorial(n - 1);
+}
+```
+
+Ассемблер:
+```
+; (переменная n в регистре cx, само число будет в bx)
+factorial:
+  cmp cx, 0
+  je i1
+  jne else
+  i1:
+    mov bx, 1
+  else:
+    sub cx, 1
+    call factorial
+    mov ax, cx
+    mul cx
+    mov bx, ax
+```
+
+#### Пример №3
+
+Си:
+```c
+int multiply(int a, int b) {
+  return a * b
+}
+```
+
+Ассемблер:
+```
+; (переменные a, b в регистрах ax и bx, само число будет в ax)
+multiply:
+  mov ax, ax
+  mov cx, bx
+  mul cx
+  mov ax, ax
 ```
