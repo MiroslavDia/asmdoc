@@ -114,7 +114,7 @@ _start:
   int 0x80 ; Можно и 80h, или 0x80, без разницы 80h или 0x80, оно в любом случае будет вызывать ядро Linux
 ```
 
-Команды:
+Вывод:
 ```bash
 $ nasm -f elf -o hello.o hello.asm
 $ ld -o hello hello.o
@@ -172,7 +172,7 @@ segment .bss ; Сегмент с неинициализированными пе
  
 ```
 
-Команды:
+Вывод:
 ```bash
 $ nasm -f elf -o summing.o summing.asm
 $ ld -o summing summing.o
@@ -184,7 +184,7 @@ $ echo $?
 
 #### Программа, которая вызывает функцию из библиотеки языка программирования Си
 
-cwithasm.asm:
+asmwithc.asm:
 ```nasm
 
 extern _printf
@@ -201,13 +201,36 @@ section .data
 
 ```
 
-Команды:
+Вывод:
 ```bash
 $ nasm -f elf -o asmwithc.o asmwithc.asm
-$ ld -o cwithasm asmwithc.o -llibc.so.6
-$ ./asmwithc
+$ ld -o asmwithc asmwithc.o -llibc.so.6
+$ ./cwithasm
 Hello, world!
 ```
+
+#### Программа, которая возвращает код выхода 228
+
+asmwithc.asm:
+```nasm
+
+section .text
+	global _start
+
+_start:
+	mov eax, 1
+	mov ebx, 228 ; EBX - регистр с кодом выхода
+	int 0x80
+```
+
+Вывод:
+```bash
+$ nasm -f elf -o asmwithc.o asmwithc.asm
+$ ld -o asmwithc asmwithc.o -llibc.so.6
+$ ./cwithasm
+Hello, world!
+```
+
 
 # Операционные системы
 
@@ -224,8 +247,8 @@ jmp _start ; Немедленно прыгаем на метку _start
 
 _start:
 	mov ax, ax
-  mov si, string
-  call print
+	mov si, string
+	call print
 	string db 'Hello, world!',0 ; Запятая и ноль обязательна (если их не будет, мы увидим мусор из памяти)
 
 print:
