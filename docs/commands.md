@@ -1,11 +1,19 @@
 # Команды
-### mov <операнд1>, <операнд2>
-Переместить регистр <операнд1> в регистр <операнд2>
 
-![Регистры](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Table_of_x86_Registers_svg.svg/1920px-Table_of_x86_Registers_svg.svg.png)
+### add <операнд1>, <операнд2>
+Добавить <операнд1> ко <операнду2> (<операнд1> + <операнд2>)
 
 ### cmp <операнд1>, <операнд2>
 Сравнить <операнд1> с <операндом2>
+
+### sub <операнд1>, <операнд2>
+Вычитать <операнд2> из <операнда1> (<операнд1> - <операнд2>)
+
+### mov <операнд1>, <операнд2>
+Переместить регистр <операнд1> в регистр <операнд2>
+
+
+![Регистры](https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Table_of_x86_Registers_svg.svg/1920px-Table_of_x86_Registers_svg.svg.png)
 
 
 # Примеры:
@@ -115,6 +123,52 @@ $ nasm -f elf -o hello.o hello.asm
 $ ld -o hello hello.o
 $ ./hello
 Hello, world!
+```
+
+#### Программа, которая суммирует два числа и выводит результат на экран
+
+summing.asm:
+```nasm
+section .data
+  x: db '4'
+  y: db '4'
+  msg: db 'Sum x and y is '
+  len: equ $ - msg
+ 
+segment .bss
+  sum resb 2
+ 
+section .text
+  global _start
+_start:
+  mov eax, x ; Перемещаем значение 4 в EAX
+  mov ebx, y ; Перемещаем значение 4 в EBX
+  sub eax, '0' ; Преобразование ASCII в цифру
+  sub ebx, '0' ; Преобразование ASCII в цифру
+  add eax, ebx ; Добавим значение регистра EBX ко регистру EAX
+  mov [sum], eax ; Сохраняем сумму чисел в sum
+  ; Пишем пользователю об этом
+  mov eax, 4
+  mov ebx, 1
+  mov ecx, msg
+  mov edx, len
+  int 0x80
+  mov eax, 4
+  mov ebx, 1
+  mov ecx, [sum]
+  mov edx, 2
+  int 0x80
+  mov eax, 1
+  mov ebx, 0
+  int 0x80
+```
+
+Команды:
+```bash
+$ nasm -f elf -o summing.o summing.asm
+$ ld -o summing summing.o
+$ ./summing
+Sum x and y is 8
 ```
 
 <br/>
