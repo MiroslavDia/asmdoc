@@ -116,3 +116,16 @@ $ ld -o hello hello.o
 $ ./hello
 Hello, world!
 ```
+
+<br/>
+<p align="center">
+Навигация:
+  
+  <div align="left">
+    ⇜ <a href="commands.cmd">Прошлая страница</a>
+  </div>
+  <div align="right">
+    ⇝ <a>Следующяя страница</a>
+  </div>
+</p>
+
