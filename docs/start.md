@@ -46,16 +46,27 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 # Установка NASM
 
 Для пользователей Android Termux: pkg install nasm
+
 Для пользователей Arch Linux: sudo pacman -S nasm
+
 Для пользователей Alpine Linux: sudo apk add nasm
+
 Для пользователей CentOS: yum install nasm
+
 Для пользователей Debian(-подобных): sudo apt install nasm
+
 Для пользователей Fedora / RedHat(-подобных): sudo dnf install nasm
+
 Для пользователей \*BSD: pkg install nasm
+
 Для пользователей Gentoo: emerge --ask --verbose dev-lang/nasm
+
 Для пользователей macOS: brew install nasm
+
 Для пользователей MS Windows/Scoop: scoop install nasm
+
 Для пользователей MS Windows/Choco: choco install nasm
+
 
 Если установка прошла без ошибок, проверите есть ли NASM следующей командой Unix:
 `[ "$(whereis nasm)" -ne "nasm:" ] && echo "Нету" || echo "Есть"`
