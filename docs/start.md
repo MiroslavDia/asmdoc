@@ -27,7 +27,7 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 
 Данная строка добавит 4 ко регистру EAX.
 
-Информация по GAS в [википедии](https://ru.wikipedia.org/wiki/GNU_Assembler)
+Информация по GAS в [википедии](https://ru.wikipedia.org/wiki/GNU_Assembler).
 
 <br/>
 <p align="center">
