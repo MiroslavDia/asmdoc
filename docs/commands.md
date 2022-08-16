@@ -122,7 +122,7 @@ Hello, world!
 Навигация:
   
   <div align="left">
-    ⇜ <a href="commands.cmd">Прошлая страница</a>
+    ⇜ <a href="start.md">Прошлая страница</a>
   </div>
   <div align="right">
     ⇝ <a>Следующяя страница</a>
