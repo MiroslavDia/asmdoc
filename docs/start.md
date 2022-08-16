@@ -32,10 +32,10 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 <br/>
 <p align="center">
 Навигация:
+  Информация по <a href="https://ru.wikipedia.org/wiki/Язык_ассемблера">языку ассемблера</a> в <a href="https://ru.wikipedia.org">википедии</a>.
   <div align="left">
     ⇜ <a>Прошлая страница</a>
   </div>
-  Информация по <a href="https://ru.wikipedia.org/wiki/Язык_ассемблера">языку ассемблера</a> в <a href="https://ru.wikipedia.org">википедии</a>.
   <div align="right">
     <a href="commands.md">Следующая страница</a> ⇝
   </div>
