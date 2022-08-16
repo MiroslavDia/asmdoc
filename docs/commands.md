@@ -203,11 +203,57 @@ section .data
 
 Команды:
 ```bash
-$ nasm -f elf -o cwithasm.o cwithasm.asm
-$ ld -o cwithasm cwithasm.o -llibc.so.6
-$ ./cwithasm
+$ nasm -f elf -o asmwithc.o asmwithc.asm
+$ ld -o cwithasm asmwithc.o -llibc.so.6
+$ ./asmwithc
 Hello, world!
 ```
+
+# Операционные системы
+
+Ассемблер используют не только для создания компьютерных программ, он также хорошо подходит для операционных систем (так, в [ядре Linux](https://github.com/torvalds/linux "Linux") есть части кода написанных на нем)
+
+### Простая операционная система
+
+hello.asm:
+```nasm
+[bits 16] ; Директива NASM, таким образом мы говорим ассемблеру генерировать 16-битный код
+[org 0x7c00] ; Организовать место в памяти, куда нас загрузит BIOS / UEFI(в режиме Legacy Mode)
+
+jmp _start ; Немедленно прыгаем на метку _start
+
+_start:
+	mov ax, ax
+  mov si, string
+  call print
+	string db 'Hello, world!',0 ; Запятая и ноль обязательна (если их не будет, мы увидим мусор из памяти)
+
+print:
+	lodsb
+	cmp al, 0
+	je .end
+	mov ah, 0eh
+	mov bh, 0
+	int 10h
+	jmp print
+	.end:
+		mov al, 0
+		ret
+
+mbr:
+  ; Делаем сектор загрузочным
+	times (510 - ($ - $$)) db 0x00
+	dw 0xAA55
+
+```
+
+Команды:
+```bash
+$ nasm -f bin -o hello.img hello.asm
+$ qemu-system-x86_64 hello.img
+```
+Результат:
+![Картинка](helloworld.png)
 
 <br/>
 <p align="center">
