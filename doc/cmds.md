@@ -19,7 +19,7 @@ if(x >= y)
 `
 
 Ассемблер
-`
+```
 ; (переменные x и y находятся в регистрах cx и dx)
 cmp cx, dx
 jge action
@@ -27,4 +27,4 @@ action:
   mov si, r
   call print
   r db 'X >= y'
-`
+```
