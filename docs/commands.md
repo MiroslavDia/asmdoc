@@ -211,7 +211,7 @@ Hello, world!
 
 #### Программа, которая возвращает код выхода 228
 
-asmwithc.asm:
+customexit.asm:
 ```nasm
 
 section .text
@@ -225,10 +225,11 @@ _start:
 
 Вывод:
 ```bash
-$ nasm -f elf -o asmwithc.o asmwithc.asm
-$ ld -o asmwithc asmwithc.o -llibc.so.6
-$ ./cwithasm
-Hello, world!
+$ nasm -f elf -o customexit.o customexit.asm
+$ ld -o customexit customexit.o
+$ ./customexit
+$ echo $?
+228
 ```
 
 
