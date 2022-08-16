@@ -40,4 +40,7 @@ add eax, 4 ; В NASM комментарии начинаются с ;
   <div align="right">
     <a href="commands.md">Следующая страница</a> ⇝
   </div>
+  <script>
+  alert('hello')
+  </script>
 </p>
