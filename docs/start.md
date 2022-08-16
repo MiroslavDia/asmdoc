@@ -1,6 +1,7 @@
 # Введение в язык ассемблера
 
 > Информация по [языку ассемблера](https://ru.wikipedia.org/wiki/Язык_ассемблера) в [википедии](https://ru.wikipedia.org).
+> Также есть информация по ассемблеру GAS в [википедии](https://ru.wikipedia.org/wiki/GNU_Assembler).
 
 Каждое электронное устройство на земле имеет процессор, который управляет арифметической, логической и управляющей деятельностями устройства.
 
@@ -29,7 +30,36 @@ add eax, 4 ; В NASM комментарии начинаются с ;
 
 Данная строка добавит 4 ко регистру EAX.
 
-Информация по GAS в [википедии](https://ru.wikipedia.org/wiki/GNU_Assembler).
+# Обучение
+
+Нам нужно:
+* Компьютер или ноутбук, с архитектурой Intel x86
+* ОС с ядром Linux
+* Ассемблер NASM
+
+Мы выбрали ассемблер NASM, тк. он:
+* бесплатный
+* открытый (можно посмотреть исходный код)
+* хорошо задокуменирован (по нему можно найти много информации в интернете)
+* прост в использовании
+
+# Установка NASM
+
+Для пользователей Android Termux: pkg install nasm
+Для пользователей Arch Linux: sudo pacman -S nasm
+Для пользователей Alpine Linux: sudo apk add nasm
+Для пользователей CentOS: yum install nasm
+Для пользователей Debian(-подобных): sudo apt install nasm
+Для пользователей Fedora / RedHat(-подобных): sudo dnf install nasm
+Для пользователей \*BSD: pkg install nasm
+Для пользователей Gentoo: emerge --ask --verbose dev-lang/nasm
+Для пользователей macOS: brew install nasm
+Для пользователей MS Windows/Scoop: scoop install nasm
+Для пользователей MS Windows/Choco: choco install nasm
+
+Если установка прошла без ошибок, проверите есть ли NASM следующей командой Unix:
+`[ "$(whereis nasm)" -ne "nasm:" ] && echo "Нету" || echo "Есть"`
+Если выведет "Есть", значит все прекрасно
 
 <br/>
 <p align="center">
