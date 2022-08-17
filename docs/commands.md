@@ -205,7 +205,7 @@ section .data
 ```bash
 $ nasm -f elf -o asmwithc.o asmwithc.asm
 $ ld -o asmwithc asmwithc.o -llibc.so.6
-$ ./cwithasm
+$ ./asmwithc
 Hello, world!
 ```
 
@@ -271,12 +271,12 @@ mbr:
 
 ```
 
-Команды:
+Результат:
+
 ```bash
 $ nasm -f bin -o hello.img hello.asm
 $ qemu-system-x86_64 hello.img
 ```
-Результат:
 ![Картинка](helloworld.png)
 
 <br/>
