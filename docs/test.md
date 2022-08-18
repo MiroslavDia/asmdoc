@@ -3,9 +3,9 @@
 <table>
   <tr>
     <th>syscall</th>
+    <th>Registers</th>
   </tr>
   <tr>
-    <th>Registers</th>
     <th>ebx</th>
     <th>ecx</th>
     <th>edx</th>
